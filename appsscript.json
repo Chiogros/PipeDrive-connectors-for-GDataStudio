@@ -1,0 +1,12 @@
+{
+  "dataStudio": {
+    "name": "PipeDrive",
+    "logoUrl": "https://images-na.ssl-images-amazon.com/images/I/816AeejOudL._AC_SX425_.jpg",
+    "company": "Chiogros",
+    "companyUrl": "https://github.com/Chiogros",
+    "addonUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio",
+    "supportUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio/issues",
+    "description": "Get PipeDrive data.",
+    "sources": ["pipedrive"]
+  }
+}
