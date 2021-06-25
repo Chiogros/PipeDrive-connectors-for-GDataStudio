@@ -78,45 +78,16 @@ function getConfig(request) {
 }
 
 function getFields(request) {
-  Logger.log("getField");
+
   var cc = DataStudioApp.createCommunityConnector();
   var fields = cc.getFields();
   var types = cc.FieldType;
   var aggregations = cc.AggregationType;
   
-  fields.newMetric()
-    .setId('Nombre de leads acheteurs')
-    .setType(types.NUMBER);
-
-  fields.newMetric()
-    .setId('Nombre de leads vendeurs')
-    .setType(types.NUMBER);
-  
-  fields.newMetric()
-    .setId('Nombre de personnes gagnées')
-    .setType(types.NUMBER);
-
-  fields.newMetric()
-    .setId('Nombre de personnes perdues')
-    .setType(types.NUMBER);
-
-  fields.newMetric()
-    .setId('Temps conversion')
-    .setType(types.NUMBER);
-
-  fields.newMetric()
-    .setId('Valeur offre acheteur')
-    .setType(types.NUMBER);
-
-  fields.newMetric()
-    .setId('Valeur pipe acheteur')
-    .setType(types.NUMBER);
-  
   fields.newDimension()
-    .setId('day')
-    .setType(types.YEAR_MONTH_DAY);
+    .setId('Leads_acheteurs')
+    .setType(types.TEXT);
   
-  Logger.log("getFiels end");
   return fields;
 }
 
@@ -126,7 +97,7 @@ function getSchema(request) {
 }
 
 function getData(request) {
-  Logger.log("getData");
+
   // Create schema for requested fields
   var requestedFieldIds = request.fields.map(function(field) {
     return field.name;
@@ -148,9 +119,12 @@ function getData(request) {
 
   var response = UrlFetchApp.fetch(url.join(''));
   var parsedResponse = JSON.parse(response).data;
+  var rows = responseToRows(requestedFields, parsedResponse, request.configParams.package);
   
-  Logger.log("getData end");
-
+  return {
+    schema: requestedFields.build(),
+    rows: rows
+  };
 }
 
 function responseToRows(requestedFields, response, packageName) {
