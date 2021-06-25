@@ -24,6 +24,10 @@ function setCredentials(request) {
   };
 }
 
+function isAdminUser() {
+  return false;
+}
+
 function checkForValidKey(key) {
   var token = key;
   var baseURL = 'https://equipeer.pipedrive.com/api/v1/deals?api_token=' + token;
@@ -99,32 +103,72 @@ function getSchema(request) {
 function getData(request) {
 
   // Create schema for requested fields
-  var requestedFieldIds = request.fields.map(function(field) {
-    return field.name;
-  });
-  var requestedFields = getFields().forIds(requestedFieldIds);
+  var requestedFields = getRequestedFields(request);
 
-  var start = 0;
+  // Get rows
+  var rows = fetchDataFromAPI(requestedFields, request);
 
-  // Fetch and parse data from API
-  var url = [
-    'https://',
-    request.configParams.domain,
-    '.pipedrive.com/api/v1/deals',
-    '?api_token=',
-    request.configParams.key,
-    '&start=',
-    start
-  ];
-
-  var response = UrlFetchApp.fetch(url.join(''));
-  var parsedResponse = JSON.parse(response).data;
-  var rows = responseToRows(requestedFields, parsedResponse, request.configParams.package);
-  
   return {
     schema: requestedFields.build(),
     rows: rows
   };
+}
+
+function getRequestedFields(request) {
+
+  // Create schema for requested fields
+  var requestedFieldIds = request.fields.map(function(field) {
+    return field.name;
+  });
+  
+  return getFields().forIds(requestedFieldIds);
+}
+
+function fetchDataFromAPI(requestedFields, request) {
+
+  var itemsPerPage = 100;
+
+  // will contains all fetched rows
+  var rows = new Array();
+
+  // index for looping through pages
+  var start = 0;
+
+  // Loop over results pages
+  while(1) {
+
+    // API Url
+    var url = [
+      'https://',
+      request.configParams.domain,
+      '.pipedrive.com/api/v1/deals',
+      '?api_token=',
+      request.configParams.key,
+      '&start=',
+      start,
+      '&limit=',
+      itemsPerPage
+    ];
+
+    // Fetch data
+    var response = UrlFetchApp.fetch(url.join(''));
+    var parsedResponse = JSON.parse(response);
+
+    // No more results
+    if (parsedResponse.data == null) {
+      break;
+    }
+
+    // Clean up results
+    var freshRows = responseToRows(requestedFields, parsedResponse.data, request.configParams.package);
+    rows = rows.concat(freshRows);
+
+    // Go to next results page
+    start += 100;
+
+  }
+
+  return rows;
 }
 
 function responseToRows(requestedFields, response, packageName) {
@@ -150,12 +194,3 @@ function responseToRows(requestedFields, response, packageName) {
   });
 
 }
-
-
-
-
-
-
-
-
-
