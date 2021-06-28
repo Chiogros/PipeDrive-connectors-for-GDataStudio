@@ -4,7 +4,7 @@ function getSchema(request) {
 
   // Check credentials
   var configParams = request.configParams;
-  checkForValidKey(configParams.key, configParams.domain);
+  checkForValidCredentials(configParams.key, configParams.domain);
 
   // return fields
   var fields = getFields(request).build();
