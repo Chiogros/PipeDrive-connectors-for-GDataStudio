@@ -89,6 +89,18 @@ function getFields(request) {
   var aggregations = cc.AggregationType;
 
   fields.newDimension()
+    .setId('Deals_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_org_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_stage_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
     .setId('Deals_title')
     .setType(types.TEXT);
 
@@ -98,24 +110,208 @@ function getFields(request) {
     .setAggregation(aggregations.SUM);
 
   fields.newDimension()
+    .setId('Deals_currency')
+    .setType(types.TEXT);
+
+  fields.newDimension()
     .setId('Deals_add_time')
-    .setType(types.YEAR_MONTH_DAY);
+    .setType(types.TEXT);
 
   fields.newDimension()
     .setId('Deals_update_time')
-    .setType(types.YEAR_MONTH_DAY);
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_stage_changed_time')
+    .setType(types.TEXT);
 
   fields.newDimension()
     .setId('Deals_active')
-    .setType(types.TEXT);
+    .setType(types.BOOLEAN);
+
+  fields.newDimension()
+    .setId('Deals_deleted')
+    .setType(types.BOOLEAN);
 
   fields.newDimension()
     .setId('Deals_status')
     .setType(types.TEXT);
 
   fields.newDimension()
+    .setId('Deals_probability')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_date')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_last_activity_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_last_activity_date')
+    .setType(types.TEXT);
+
+  fields.newDimension()
     .setId('Deals_lost_reason')
     .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_visible_to')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_close_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_pipeline_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_won_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_first_won_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_lost_time')
+    .setType(types.TEXT);
+
+  fields.newMetric()
+    .setId('Deals_products_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_files_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_notes_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_followers_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_email_messages_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_activities_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_done_activities_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_undone_activities_count')
+    .setType(types.NUMBER);
+
+  fields.newMetric()
+    .setId('Deals_participants_count')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_expected_close_date')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_last_incoming_mail_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_last_outcoming_mail_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_renewal_type')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_stage_order_nr')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_person_name')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_org_name')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_subject')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_type')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_duration')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_next_activity_note')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_group_id')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_group_name')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_formatted_value')
+    .setType(types.TEXT);
+
+  fields.newMetric()
+    .setId('Deals_weighted_value')
+    .setType(types.NUMBER);
+
+  fields.newDimension()
+    .setId('Deals_formatted_weighted_value')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_weighted_value_currency')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_rotten_time')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_owner_name')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_cc_email')
+    .setType(types.TEXT);
+
+  fields.newDimension()
+    .setId('Deals_org_hidden')
+    .setType(types.BOOLEAN);
+
+  fields.newDimension()
+    .setId('Deals_person_hidden')
+    .setType(types.BOOLEAN);
 
   return fields;
 }
@@ -203,7 +399,7 @@ function fetchDataFromAPI(requestedFields, request) {
     }
 
     // Clean up results
-    var freshRows = responseToRows(requestedFields, parsedResponse.data, request.configParams.package);
+    var freshRows = responseToRows(requestedFields, parsedResponse.data);
     rows = rows.concat(freshRows);
 
     // Go to next results page
@@ -214,36 +410,130 @@ function fetchDataFromAPI(requestedFields, request) {
   return rows;
 }
 
-function responseToRows(requestedFields, response, packageName) {
+function responseToRows(requestedFields, response) {
 
   // Transform parsed data and filter for requested fields
+  var fields = requestedFields.asArray();
+
   return response.map(function(dataElement) {
-    var row = [];
-    requestedFields.asArray().forEach(function (field) {
+    var rows = [];
+    
+    fields.forEach(function (field) {
+      
       switch (field.getId()) {
+        case 'Deals_id':
+          return rows.push(dataElement.id);
+        case 'Deals_org_id':
+          return rows.push(dataElement.org_id);
+        case 'Deals_stage_id':
+          return rows.push(dataElement.stage_id);
         case 'Deals_title':
-          return row.push(dataElement.title);
+          return rows.push(dataElement.title);
         case 'Deals_value':
-          return row.push(dataElement.value);
+          return rows.push(dataElement.value);
+        case 'Deals_currency':
+          return rows.push(dataElement.currency);
         case 'Deals_add_time':
-          let date_add_time = new Date(dataElement.add_time);
-          let date_add_time_string = date_add_time.getFullYear() + '/' + (date_add_time.getMonth() + 1) + '/' + date_add_time.getDate();
-          return row.push(date_add_time_string);
+          return rows.push(dataElement.add_time);
         case 'Deals_update_time':
-          let date_update_time = new Date(dataElement.update_time);
-          let date_update_time_string = date_update_time.getFullYear() + '/' + (date_update_time.getMonth() + 1) + '/' + date_update_time.getDate();
-          return row.push(date_update_time_string);
+          return rows.push(dataElement.update_time);
+        case 'Deals_stage_changed_time':
+          return rows.push(dataElement.stage_changed_time);
         case 'Deals_active':
-          return row.push(dataElement.active);
+          return rows.push(dataElement.active);
+        case 'Deals_deleted':
+          return rows.push(dataElement.deleted);
         case 'Deals_status':
-          return row.push(dataElement.status);
+          return rows.push(dataElement.status);
+        case 'Deals_probability':
+          return rows.push(dataElement.probability);
+        case 'Deals_next_activity_date':
+          return rows.push(dataElement.next_activity_date);
+        case 'Deals_next_activity_time':
+          return rows.push(dataElement.next_activity_time);
+        case 'Deals_next_activity_id':
+          return rows.push(dataElement.next_activity_id);
+        case 'Deals_last_activity_date':
+          return rows.push(dataElement.last_activity_date);
         case 'Deals_lost_reason':
-          return row.push(dataElement.lost_reason);
+          return rows.push(dataElement.lost_reason);
+        case 'Deals_visible_to':
+          return rows.push(dataElement.visible_to);
+        case 'Deals_close_time':
+          return rows.push(dataElement.close_time);
+        case 'Deals_pipeline_id':
+          return rows.push(dataElement.pipeline_id);
+        case 'Deals_won_time':
+          return rows.push(dataElement.won_time);
+        case 'Deals_lost_time':
+          return rows.push(dataElement.lost_time);
+        case 'Deals_products_count':
+          return rows.push(dataElement.products_count);
+        case 'Deals_files_count':
+          return rows.push(dataElement.files_count);
+        case 'Deals_notes_count':
+          return rows.push(dataElement.notes_count);
+        case 'Deals_followers_count':
+          return rows.push(dataElement.followers_count);
+        case 'Deals_email_messages_count':
+          return rows.push(dataElement.email_messages_count);
+        case 'Deals_activities_count':
+          return rows.push(dataElement.activities_count);
+        case 'Deals_done_activities_count':
+          return rows.push(dataElement.done_activities_count);
+        case 'Deals_undone_activities_count':
+          return rows.push(dataElement.undone_activities_count);
+        case 'Deals_participants_count':
+          return rows.push(dataElement.participants_count);
+        case 'Deals_expected_close_date':
+          return rows.push(dataElement.expected_close_date);
+        case 'Deals_last_incoming_mail_time':
+          return rows.push(dataElement.last_incoming_mail_time);
+        case 'Deals_last_outcoming_mail_time':
+          return rows.push(dataElement.last_outcoming_mail_time);
+        case 'Deals_renewal_type':
+          return rows.push(dataElement.renewal_type);
+        case 'Deals_stage_order_nr':
+          return rows.push(dataElement.stage_order_nr);
+        case 'Deals_person_name':
+          return rows.push(dataElement.person_name);
+        case 'Deals_org_name':
+          return rows.push(dataElement.org_name);
+        case 'Deals_next_activity_subject':
+          return rows.push(dataElement.next_activity_subject);
+        case 'Deals_next_activity_type':
+          return rows.push(dataElement.next_activity_type);
+        case 'Deals_next_activity_duration':
+          return rows.push(dataElement.next_activity_duration);
+        case 'Deals_next_activity_note':
+          return rows.push(dataElement.next_activity_note);
+        case 'Deals_group_id':
+          return rows.push(dataElement.group_id);
+        case 'Deals_group_name':
+          return rows.push(dataElement.group_name);
+        case 'Deals_formatted_value':
+          return rows.push(dataElement.formatted_value);
+        case 'Deals_weighted_value':
+          return rows.push(dataElement.weighted_value);
+        case 'Deals_formatted_weighted_value':
+          return rows.push(dataElement.formatted_weighted_value);
+        case 'Deals_weighted_value_currency':
+          return rows.push(dataElement.weighted_value_currency);
+        case 'Deals_rotten_time':
+          return rows.push(dataElement.rotten_time);
+        case 'Deals_owner_name':
+          return rows.push(dataElement.owner_name);
+        case 'Deals_cc_email':
+          return rows.push(dataElement.cc_email);
+        case 'Deals_org_hidden':
+          return rows.push(dataElement.org_hidden);
+        case 'Deals_person_hidden':
+          return rows.push(dataElement.person_hidden);
         default:
           break;
       }
     });
-    return { values: row };
-  });
 
+    return { values: rows };
+  });
 }
