@@ -46,11 +46,13 @@ function checkForValidCredentials(key, domain) {
   var response = UrlFetchApp.fetch(baseURL, options);
   // var response = UrlFetchApp.fetch(baseURL);
 
-  if (response.getResponseCode() != 200) {
-    throw 'Credentials not valids';
+  if (response.getResponseCode() == 200) {
+    return true;
   }
-
-  return true;
+    
+  cc.newUserError()
+    .setText('Credentials are not valids.')
+    .throwException();
 
 }
 
