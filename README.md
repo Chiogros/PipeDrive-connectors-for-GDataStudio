@@ -27,7 +27,7 @@ function getFields(request) {
     .setId('Deals_X')
     .setType(types.TEXT); // BOOLEAN, NUMBER, ...
   
-  // all fetchable fields
+  // put all fetchable fields
   
   return fields;
 }
