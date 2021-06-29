@@ -1,16 +1,17 @@
 {
+  "exceptionLogging": "NONE",
+  "runtimeVersion": "V8",
+  "dependencies": {},
   "dataStudio": {
-    "name": "PipeDrive",
+    "name": "PipeDrive Core",
     "logoUrl": "https://stileex.xyz/wp-content/uploads/2019/06/Pipedrive-1.png",
     "company": "Chiogros",
     "companyUrl": "https://github.com/Chiogros",
-    "addonUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio",
+    "addonUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio/Core",
     "supportUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio/issues",
-    "description": "Get PipeDrive data.",
+    "description": "Core PipeDrive connector, used by other connectors. Do not use it.",
     "sources": [
       "pipedrive"
     ]
-  },
-  "exceptionLogging": "NONE",
-  "runtimeVersion": "V8"
+  }
 }
