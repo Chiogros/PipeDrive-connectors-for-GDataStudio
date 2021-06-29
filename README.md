@@ -34,6 +34,7 @@ function getFields(request) {
 ```
 3. Handle each data row
 ```javascript
+// dataHandler.gs
 function responseToRows(requestedFields, response) {
 
   // Filter for requested fields
