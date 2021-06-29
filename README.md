@@ -1,5 +1,5 @@
 # PipeDrive-connectors-for-GDataStudio
-A basic connector for Google Data Studio that connects to PipeDrive API to fetch data.
+Google Data Studio connectors to fetch data from PipeDrive API.
 
 ## To create a new PipeDrive connector
 First, copy Deals or Pipelines connector.
