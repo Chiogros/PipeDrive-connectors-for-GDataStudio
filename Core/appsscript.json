@@ -7,8 +7,8 @@
     "logoUrl": "https://stileex.xyz/wp-content/uploads/2019/06/Pipedrive-1.png",
     "company": "Chiogros",
     "companyUrl": "https://github.com/Chiogros",
-    "addonUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio/Core",
-    "supportUrl": "https://github.com/Chiogros/PipeDrive-connector-for-GDataStudio/issues",
+    "addonUrl": "https://github.com/Chiogros/PipeDrive-connectors-for-GDataStudio/Core",
+    "supportUrl": "https://github.com/Chiogros/PipeDrive-connectors-for-GDataStudio/issues",
     "description": "Core PipeDrive connector, used by other connectors. Do not use it.",
     "sources": [
       "pipedrive"
