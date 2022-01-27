@@ -26,7 +26,7 @@ Children connectors (Deals, Pipelines, ...) use Core functions and also have spe
 7. Go back to code window
 8. Create files and set code for the child connector
 9. In `appsscript.json`, change `Dependencies` > `Libraries` > `LibraryID` to the Core script ID you took note
-10. Deploy it (easiest by going though `Use old editor` button > `Publish` > `Publish from manifest file`)
+10. Deploy it (easiest by going through `Use old editor` button > `Publish` > `Publish from manifest file`)
 
 ### Use connectors in GDS
 1. Go to [Google Data Studio](https://datastudio.google.com)
